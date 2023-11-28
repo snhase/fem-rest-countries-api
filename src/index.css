@@ -1,13 +1,34 @@
+@font-face {
+  font-family: nunito-variable;
+  src: url('../src/assets/fonts/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf');
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: nunito-italic;
+  src: url('../src/assets/fonts/NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf');
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: italic;
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family:'nunito-variable';
+  font-size: 14px;
+  background-color:  hsl(0, 0%, 98%);
+  width:100%
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  height: 100vh;
+  min-height: 100vh;
 }
