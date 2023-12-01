@@ -1,10 +1,9 @@
 import { FaSearch } from "react-icons/fa";
-import data from "../data.json"
 
-export const Countries = ({region, setRegion} ) => {
+export const Countries = ({data, region, setRegion, showDetails, setShowDetails, countryDetails, setCountryDetails} ) => {
     return(
         <div className='mx-auto m-0 p-0'>
-            <div className="my-4 row justify-content-between align-items-center mx-auto">
+          <div className="my-4 row justify-content-between align-items-center mx-auto">
           <div className="col-sm-4">
             <div className="my-3  bg-white align-items-center rounded-3 shadow-sm">
               <FaSearch className="mx-3" color="hsl(0, 0%, 52%)" size="1.25rem"/>
@@ -38,10 +37,17 @@ export const Countries = ({region, setRegion} ) => {
             </div>
             <div className="row mx-auto">
               {
+                data?
                 data.map((country)=>{
                   return (
                   <div className="col-md-4 col-lg-3 mb-5">
-                  <div className="card border-light shadow-sm rounded-3">
+                  <div 
+                    className="card border-light shadow-sm rounded-3"
+                    onClick={()=>{
+                      setShowDetails(true)
+                      setCountryDetails(country)
+                    }}
+                    >
                     <img src={country.flags.png} className="card-img-top flag-img" alt="country flag"/>
                     <div className="card-body p-4 mb-3">
                       <div className="card-title py-2">{country.name}</div>
@@ -54,6 +60,8 @@ export const Countries = ({region, setRegion} ) => {
                   </div>
                   </div>)
                 })
+                :
+                <></>
               }
             </div>
         </div>

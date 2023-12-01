@@ -1,14 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { BsMoon } from "react-icons/bs";
 import { Countries } from './assets/components/Countries';
+import { CountryDetails } from './assets/components/CountryDetails';
+import countries from "./assets/data.json"
 
 function App() {
-
+  const [data, setData] = useState(null)
   const [region, setRegion] = useState("Filter By Region")
+  const [showDetails, setShowDetails] = useState(false)
+  const [countryDetails, setCountryDetails] = useState(null)
+
+  useEffect(() => {
+    //ToDo : Update to use RestCountries API later
+    setData(countries)
+  })
     
   return (
-    <div className="d-flex flex-column">
+    <div className="app">
       <header className=" shadow-sm py-3 bg-white">
         <div className="container d-flex justify-content-between mx-auto">
         <div className=" h3"> Where in the world?</div>
@@ -19,10 +28,23 @@ function App() {
         </div>
       </header>
       <main className="container mx-auto px-0">
-        <Countries 
-          region={region}
-          setRegion={setRegion}
+        {
+          showDetails ?
+          <CountryDetails
+            country={countryDetails}
+            setShowDetails = {setShowDetails}
+            />
+          :
+          <Countries
+          data={data}
+          region = {region}
+          setRegion = {setRegion}
+          showDetails = {showDetails}
+          setShowDetails = {setShowDetails}
+          countryDetails = {countryDetails}
+          setCountryDetails = {setCountryDetails}
           />
+        }
       </main>
       <footer className="p-3 text-center bg-white">
       Challenge by <a 

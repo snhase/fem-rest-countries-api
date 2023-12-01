@@ -1,12 +1,29 @@
+.app {
+  height:100vh
+}
 
 .dark-mode {
   font-weight: 600;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .card-title {
   font-weight:800;
   font-size: 16px;
 }
+
+.country-details-body {
+  font-size: 16px;
+}
+
+.country-details-title {
+  font-weight:800;
+  font-size: 24px;
+}
+
 
 footer {
   position: bottom;
@@ -18,8 +35,16 @@ footer {
   height:200px;
 }
 
+.flag-img-details {
+  width:100%;
+}
+
 .h3 {
 font-weight: 800;
+}
+
+main{
+  min-height:100vh
 }
 
 .search-input {
