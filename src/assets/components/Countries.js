@@ -1,6 +1,15 @@
 import { FaSearch } from "react-icons/fa";
+import { getCountryDetails,getBorderCountryDetails } from "../../requests";
 
-export const Countries = ({data, region, setRegion, showDetails, setShowDetails, countryDetails, setCountryDetails} ) => {
+export const Countries = ({
+  data, 
+  region, 
+  setRegion, 
+  setShowDetails, 
+  setCountryDetails, 
+  setBorderCountryDetails, 
+  serverUrl}) => {
+
     return(
         <div className='mx-auto m-0 p-0'>
           <div className="my-4 row justify-content-between align-items-center mx-auto">
@@ -21,7 +30,7 @@ export const Countries = ({data, region, setRegion, showDetails, setShowDetails,
               </button>
                 <ul className="dropdown-menu border-0 mt-2 dropdown-menu-end">
                   {
-                    region != "Filter By Region"?
+                    region !== "Filter By Region"?
                     <div className="dropdown-item" id="FilterByRegion" onClick={()=>{setRegion("Filter By Region")}}>Show All</div>
                     :
                     <></>
@@ -38,23 +47,46 @@ export const Countries = ({data, region, setRegion, showDetails, setShowDetails,
             <div className="row mx-auto">
               {
                 data?
-                data.map((country)=>{
+                data.map((country,idx)=>{
                   return (
-                  <div className="col-md-4 col-lg-3 mb-5">
+                  <div key={idx} className="col-md-4 col-lg-3 mb-5">
                   <div 
                     className="card border-light shadow-sm rounded-3"
                     onClick={()=>{
-                      setShowDetails(true)
-                      setCountryDetails(country)
+                      let requestUrl = serverUrl + "/alpha/"+ country.cca3;
+                      getCountryDetails(
+                          requestUrl, 
+                          setCountryDetails,
+                           (country) => {
+                            if(country && country.borders) {
+                              let list = country.borders
+                              let requestUrl = serverUrl + "/alpha?codes="+ list;
+                              getBorderCountryDetails(
+                                requestUrl, 
+                                setBorderCountryDetails,
+                                () => {
+                                  setShowDetails(true)
+                                });
+                              }
+                            else {
+                              setBorderCountryDetails(null)
+                              setShowDetails(true)
+                            }
+                          })
                     }}
                     >
                     <img src={country.flags.png} className="card-img-top flag-img" alt="country flag"/>
                     <div className="card-body p-4 mb-3">
-                      <div className="card-title py-2">{country.name}</div>
+                      <div className="card-title py-2">{country.name.common}</div>
                       <div className="card-text">
-                        <div><b>Population :</b> {(country.population).toLocaleString()}</div>
-                        <div><b>Region :</b> {country.region}</div>
-                        <div><b>Capital :</b> {country.capital}</div>
+                        <div><b>Population: </b> {(country.population).toLocaleString()}</div>
+                        <div><b>Region: </b> {country.region}</div>
+                        <div><b>Capital: </b>
+                          {
+                            country.capital?
+                            country.capital.join(', '):''
+                          }
+                        </div>
                       </div>
                     </div>
                   </div>

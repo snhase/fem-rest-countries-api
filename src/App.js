@@ -3,18 +3,24 @@ import './App.css';
 import { BsMoon } from "react-icons/bs";
 import { Countries } from './assets/components/Countries';
 import { CountryDetails } from './assets/components/CountryDetails';
-import countries from "./assets/data.json"
+import { getAllCountriesData } from './requests';
 
 function App() {
+
+  const serverUrl = "https://restcountries.com/v3.1"
+
   const [data, setData] = useState(null)
+  const [countryDetails, setCountryDetails] = useState(null)
+  const [borderCountryDetails, setBorderCountryDetails] = useState(null)
   const [region, setRegion] = useState("Filter By Region")
   const [showDetails, setShowDetails] = useState(false)
-  const [countryDetails, setCountryDetails] = useState(null)
 
   useEffect(() => {
-    //ToDo : Update to use RestCountries API later
-    setData(countries)
-  })
+    if(!data){
+      let requestUrl = serverUrl + "/all";
+      getAllCountriesData(requestUrl, setData)
+    }
+  },[data, serverUrl, setData]);
     
   return (
     <div className="app">
@@ -32,17 +38,21 @@ function App() {
           showDetails ?
           <CountryDetails
             country={countryDetails}
+            setCountryDetails = {setCountryDetails}
             setShowDetails = {setShowDetails}
+            borderCountryDetails = {borderCountryDetails}
+            setBorderCountryDetails = {setBorderCountryDetails}
+            serverUrl = {serverUrl}
             />
           :
           <Countries
           data={data}
           region = {region}
           setRegion = {setRegion}
-          showDetails = {showDetails}
           setShowDetails = {setShowDetails}
-          countryDetails = {countryDetails}
           setCountryDetails = {setCountryDetails}
+          setBorderCountryDetails = {setBorderCountryDetails}
+          serverUrl = {serverUrl}
           />
         }
       </main>
