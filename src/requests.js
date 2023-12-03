@@ -1,4 +1,4 @@
-export const getAllCountriesData = async (requestUrl, setData) => {
+export const getCountriesData = async (requestUrl, setData) => {
     try {
         const data = await getRequest(requestUrl);
 

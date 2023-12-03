@@ -3,22 +3,23 @@ import './App.css';
 import { BsMoon } from "react-icons/bs";
 import { Countries } from './assets/components/Countries';
 import { CountryDetails } from './assets/components/CountryDetails';
-import { getAllCountriesData } from './requests';
+import { getCountriesData } from './requests';
 
 function App() {
 
   const serverUrl = "https://restcountries.com/v3.1"
-
-  const [data, setData] = useState(null)
-  const [countryDetails, setCountryDetails] = useState(null)
   const [borderCountryDetails, setBorderCountryDetails] = useState(null)
+  const [countriesByRegion, setCountriesByRegion] = useState(false)
+  const [countryDetails, setCountryDetails] = useState(null)
+  const [data, setData] = useState(null)
   const [region, setRegion] = useState("Filter By Region")
   const [showDetails, setShowDetails] = useState(false)
+  const [displayType, setDisplayType] = useState("all")
 
   useEffect(() => {
     if(!data){
       let requestUrl = serverUrl + "/all";
-      getAllCountriesData(requestUrl, setData)
+      getCountriesData(requestUrl, setData)
     }
   },[data, serverUrl, setData]);
     
@@ -37,23 +38,27 @@ function App() {
         {
           showDetails ?
           <CountryDetails
+            borderCountryDetails = {borderCountryDetails}
             country={countryDetails}
+            serverUrl = {serverUrl}
             setCountryDetails = {setCountryDetails}
             setShowDetails = {setShowDetails}
-            borderCountryDetails = {borderCountryDetails}
             setBorderCountryDetails = {setBorderCountryDetails}
-            serverUrl = {serverUrl}
             />
           :
           <Countries
-          data={data}
-          region = {region}
-          setRegion = {setRegion}
-          setShowDetails = {setShowDetails}
-          setCountryDetails = {setCountryDetails}
-          setBorderCountryDetails = {setBorderCountryDetails}
-          serverUrl = {serverUrl}
-          />
+            countriesByRegion = {countriesByRegion}
+            data = {data}
+            displayType = {displayType}
+            region = {region}
+            serverUrl = {serverUrl}
+            setBorderCountryDetails = {setBorderCountryDetails}
+            setCountriesByRegion = {setCountriesByRegion}
+            setCountryDetails = {setCountryDetails}
+            setDisplayType = {setDisplayType}
+            setRegion = {setRegion}
+            setShowDetails = {setShowDetails}
+            />
         }
       </main>
       <footer className="p-3 text-center bg-white">
