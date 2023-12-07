@@ -13,6 +13,9 @@ export const getCountriesData = async (requestUrl, setData) => {
         }
     } catch (error) {
         console.error('Error', error);
+        if(error.message === '404'){
+            setData(null);
+        }
     }
 }
 
@@ -44,20 +47,20 @@ export const getBorderCountryDetails = async (requestUrl, setBorderCountryDetail
 
 
 const getRequest = async (requestUrl) => {
-    try {
-        const response = await fetch(requestUrl ,{
-            method: 'GET'
-        });
+    const response = await fetch(requestUrl ,{
+        method: 'GET'
+    });
 
-        if(!response.ok) {
+    if(!response.ok) {
+        if(response.status === 404){
+            throw new Error ('404');
+        }
+        else{
             throw new Error ('Network response not ok');
         }
-        
-        const data = await response.json();
-
-        return data;
-
-    } catch (error) {
-        console.error('Error', error);
     }
+    
+    const data = await response.json();
+
+    return data;
 }

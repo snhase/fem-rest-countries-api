@@ -12,9 +12,10 @@ function App() {
   const [countriesByRegion, setCountriesByRegion] = useState(false)
   const [countryDetails, setCountryDetails] = useState(null)
   const [data, setData] = useState(null)
+  const [displayType, setDisplayType] = useState("all")
   const [region, setRegion] = useState("Filter By Region")
   const [showDetails, setShowDetails] = useState(false)
-  const [displayType, setDisplayType] = useState("all")
+  const [searchResult, setSearchResult] = useState(null)
 
   useEffect(() => {
     if(!data){
@@ -50,13 +51,16 @@ function App() {
             countriesByRegion = {countriesByRegion}
             data = {data}
             displayType = {displayType}
+            searchResult = {searchResult}
             region = {region}
             serverUrl = {serverUrl}
             setBorderCountryDetails = {setBorderCountryDetails}
             setCountriesByRegion = {setCountriesByRegion}
             setCountryDetails = {setCountryDetails}
+            setData = {setData}
             setDisplayType = {setDisplayType}
             setRegion = {setRegion}
+            setSearchResult = {setSearchResult}
             setShowDetails = {setShowDetails}
             />
         }
