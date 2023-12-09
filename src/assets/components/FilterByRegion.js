@@ -10,18 +10,18 @@ export const FilterByRegion = (
   }
 ) => {
 
-    const regionList = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+    const regionList = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
     return (
       <div className="dropdown shadow-sm">
         <button 
-          className="btn bg-white dropdown-toggle py-2 px-3" 
+          className="btn dropdown-toggle py-2 ps-2 shadow-none" 
           type="button" 
           data-bs-toggle="dropdown" 
           aria-expanded="false">
           {region}
         </button>
-        <ul className="dropdown-menu border-0 mt-2 dropdown-menu-end">
+        <ul className="dropdown-menu mt-1 ps-2 shadow-sm">
             {
               region !== "Filter By Region"?
               <div 

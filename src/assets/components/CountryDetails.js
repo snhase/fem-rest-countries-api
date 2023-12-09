@@ -19,7 +19,7 @@ export const CountryDetails = ({
             <div className="row mx-auto mb-5 mb-md-4">
                 <div className="col">
                 <button 
-                    className="px-4 py-2 bg-white border rounded-3 shadow"
+                    className="btn px-4 py-2 rounded-3"
                     onClick={()=>{
                         setShowDetails(false)
                     }}
@@ -39,7 +39,7 @@ export const CountryDetails = ({
                     <div className="row country-details-title">
                         <div>{country.name.common}</div>
                     </div>
-                    <div className="row country-details-body">
+                    <div className="row justify-content-between country-details-body">
                         <div className="col-sm my-3">
                             <div className="my-1"><b>Native Name: </b> 
                                 {
@@ -100,7 +100,7 @@ export const CountryDetails = ({
                             <div className="my-1"><b>Language: </b>
                                 {
                                     country.languages?
-                                    Object.values(country.languages).join(", ")
+                                    Object.values(country.languages).sort().join(", ")
                                     :
                                     <></>
                                 }
@@ -109,19 +109,19 @@ export const CountryDetails = ({
                         <div>
                         </div>
                     </div>
-                    <div className="row country-details-body">
-                        <div className="col-sm-4 my-2"> 
+                    <div className="row align-items-center country-details-body">
+                        <div className="col-auto my-2"> 
                         <b>Border Countries:</b>
                         </div>
-                        <div className="col-sm-8 my-2">
+                        <div className="col-auto">
                             {
                                 borderCountryDetails?
                                 borderCountryDetails.map(item =>{
                                     return(
                                         <button 
                                             key={item.cca3}
-                                            className="my-1 px-4 bg-white border rounded-3 shadow-sm" 
-                                            style={{marginRight:"1rem"}}
+                                            className="btn my-1 px-3 rounded-3" 
+                                            style={{marginRight:"0.5rem", minWidth:"100px"}}
                                             onClick={()=>{
                                                 let requestUrl = serverUrl + "/alpha/"+ item.cca3;
                                                 getCountryDetails(

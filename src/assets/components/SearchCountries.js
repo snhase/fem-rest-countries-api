@@ -2,6 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { getCountriesData } from "../../requests";
 
 export const SearchCountries = ({
+    darkTheme,
     data,
     serverUrl, 
     setData,
@@ -9,10 +10,10 @@ export const SearchCountries = ({
     setSearchResult,
 }) => {
     return (
-        <div className="my-3  bg-white align-items-center rounded-3 shadow-sm w-100 d-flex">
-            <FaSearch className="mx-3" color="hsl(0, 0%, 52%)" size="1.25rem"/>
+        <div className="search-input-group d-flex my-3 align-items-center rounded-3 shadow-sm w-100">
+            <FaSearch className="mx-3" color={darkTheme? "hsl(0, 0%, 98%)" :"hsl(0, 0%, 52%)"} size="1.25rem"/>
             <input 
-                className="mx-3 search-input" 
+                className="mx-3 search-input form-control" 
                 placeholder="Search for a country..."
                 onChange={(event)=>{
                     let name = event.target.value

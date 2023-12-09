@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { BsMoon } from "react-icons/bs";
+import { BsMoon, BsFillMoonFill } from "react-icons/bs";
 import { Countries } from './assets/components/Countries';
 import { CountryDetails } from './assets/components/CountryDetails';
 import { getCountriesData } from './requests';
@@ -16,6 +16,7 @@ function App() {
   const [region, setRegion] = useState("Filter By Region")
   const [showDetails, setShowDetails] = useState(false)
   const [searchResult, setSearchResult] = useState(null)
+  const [darkTheme, setDarkTheme] = useState(false)
 
   useEffect(() => {
     if(!data){
@@ -23,24 +24,49 @@ function App() {
       getCountriesData(requestUrl, setData)
     }
   },[data, serverUrl, setData]);
+
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme)
+    if (!darkTheme) {
+      document.documentElement.setAttribute("data-bs-theme", "dark")
+    } else {
+      document.documentElement.setAttribute("data-bs-theme", "light")
+    }
+  }
     
   return (
     <div className="app">
-      <header className=" shadow-sm py-3 bg-white">
+      <header className="header shadow-sm py-3">
         <div className="container d-flex justify-content-between mx-auto">
-        <div className=" h3"> Where in the world?</div>
-            <div className="col d-flex align-content-center align-items-center justify-content-end dark-mode">
-              <BsMoon/>
-              <div className="mx-2">Dark Mode</div>
+        <div className="h3 align-content-center align-items-center"><span> Where in the world?</span></div>
+            <div 
+              className="col d-flex align-content-center align-items-center justify-content-end"
+              >
+                {
+                  darkTheme ?
+                  <BsFillMoonFill
+                    size="1.25rem"
+                    style={{cursor:"pointer"}}
+                    onClick={toggleTheme}/>
+                  :
+                  <BsMoon
+                    size="1.25rem"
+                    style={{cursor:"pointer"}}
+                    onClick={toggleTheme}/>
+                }
+              <div 
+                className="mx-2 fw-bold"
+                >Dark Mode</div>
             </div>
         </div>
       </header>
-      <main className="container mx-auto px-0">
+      <main className="content container mx-auto px-0">
         {
           showDetails ?
           <CountryDetails
             borderCountryDetails = {borderCountryDetails}
-            country={countryDetails}
+            country = {countryDetails}
+            darkTheme = {darkTheme}
             serverUrl = {serverUrl}
             setCountryDetails = {setCountryDetails}
             setShowDetails = {setShowDetails}
@@ -49,6 +75,7 @@ function App() {
           :
           <Countries
             countriesByRegion = {countriesByRegion}
+            darkTheme = {darkTheme}
             data = {data}
             displayType = {displayType}
             searchResult = {searchResult}
@@ -65,7 +92,7 @@ function App() {
             />
         }
       </main>
-      <footer className="p-3 text-center bg-white">
+      <footer className="footer p-3 text-center">
       Challenge by <a 
             href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca" 
             alt="frontend-mentor challenge link" 

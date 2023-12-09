@@ -14,13 +14,15 @@
   font-style: italic;
 }
 
+[data-bs-theme="light"] {
+  --bs-body-bg: hsl(0, 0%, 98%);
+}
 
 body {
   margin: 0;
   font-family:'nunito-variable';
   font-size: 14px;
-  background-color:  hsl(0, 0%, 98%);
-  width:100%
+  width:100%;
 }
 
 code {

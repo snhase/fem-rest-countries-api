@@ -4,6 +4,7 @@ import { SearchCountries } from "./SearchCountries";
 
 export const Countries = ({
   countriesByRegion,
+  darkTheme,
   data, 
   displayType,
   region,
@@ -23,6 +24,7 @@ export const Countries = ({
         <div className="my-4 row justify-content-between align-items-center mx-auto">
           <div className="col-sm-4">
             <SearchCountries
+              darkTheme = {darkTheme}
               data = {data}
               serverUrl = {serverUrl}
               setData = {setData}
@@ -48,7 +50,7 @@ export const Countries = ({
                   return (
                   <div key={idx} className="col-md-4 col-lg-3 mb-5">
                   <div 
-                    className="card border-light shadow-sm rounded-3"
+                    className="card rounded-3"
                     onClick={()=>{
                       let requestUrl = serverUrl + "/alpha/"+ country.cca3;
                       getCountryDetails(
@@ -98,7 +100,7 @@ export const Countries = ({
                   return (
                   <div key={idx} className="col-md-4 col-lg-3 mb-5">
                   <div 
-                    className="card border-light shadow-sm rounded-3"
+                    className="card rounded-3"
                     onClick={()=>{
                       let requestUrl = serverUrl + "/alpha/"+ country.cca3;
                       getCountryDetails(
@@ -145,7 +147,7 @@ export const Countries = ({
                   return (
                   <div key={idx} className="col-md-4 col-lg-3 mb-5">
                   <div 
-                    className="card border-light shadow-sm rounded-3"
+                    className="card rounded-3"
                     onClick={()=>{
                       let requestUrl = serverUrl + "/alpha/"+ country.cca3;
                       getCountryDetails(
