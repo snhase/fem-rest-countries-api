@@ -4,10 +4,13 @@ import { getCountriesData } from "../../requests";
 export const SearchCountries = ({
     darkTheme,
     data,
+    searchQuery,
     serverUrl, 
     setData,
     setDisplayType,
+    setRegion,
     setSearchResult,
+    setSearchQuery,
 }) => {
     return (
         <div className="search-input-group d-flex my-3 align-items-center rounded-3 shadow-sm w-100">
@@ -15,11 +18,13 @@ export const SearchCountries = ({
             <input 
                 className="mx-3 search-input form-control" 
                 placeholder="Search for a country..."
+                value={searchQuery}
                 onChange={(event)=>{
+                    setRegion("Filter By Region")
                     let name = event.target.value
+                    setSearchQuery(name)
                     if(name.length >= 1 ) {
                         let requestUrl = serverUrl + "/name/"+ name;
-                        console.log(requestUrl)
                         getCountriesData(
                             requestUrl, 
                             setSearchResult
@@ -29,10 +34,10 @@ export const SearchCountries = ({
                     else {
                         setSearchResult(null)
                         setDisplayType("all")
-                        if(data) {
+                        if(!data) {
                             let requestUrl = serverUrl + "/all";
                             getCountriesData(requestUrl, setData)
-                        }
+                        }                        
                     }
                     
                 }}

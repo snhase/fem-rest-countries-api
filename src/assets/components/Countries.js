@@ -9,11 +9,13 @@ export const Countries = ({
   displayType,
   region,
   searchResult,
+  searchQuery,
   serverUrl,
   setData, 
   setDisplayType, 
   setRegion,
   setSearchResult,
+  setSearchQuery,
   setShowDetails, 
   setCountryDetails,
   setCountriesByRegion,
@@ -26,10 +28,13 @@ export const Countries = ({
             <SearchCountries
               darkTheme = {darkTheme}
               data = {data}
+              searchQuery = {searchQuery}
               serverUrl = {serverUrl}
               setData = {setData}
               setDisplayType = {setDisplayType}
+              setRegion = {setRegion}
               setSearchResult = {setSearchResult}
+              setSearchQuery = {setSearchQuery}
               />
           </div>
           <div className="d-flex justify-content-start col-sm-4 justify-content-sm-end">
@@ -40,6 +45,8 @@ export const Countries = ({
               setRegion = {setRegion}
               setDisplayType = {setDisplayType}
               setCountriesByRegion = {setCountriesByRegion}
+              setSearchResult = {setSearchResult}
+              setSearchQuery = {setSearchQuery}
             />
           </div>
         </div>

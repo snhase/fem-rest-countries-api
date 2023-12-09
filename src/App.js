@@ -16,6 +16,7 @@ function App() {
   const [region, setRegion] = useState("Filter By Region")
   const [showDetails, setShowDetails] = useState(false)
   const [searchResult, setSearchResult] = useState(null)
+  const [searchQuery, setSearchQuery] = useState('')
   const [darkTheme, setDarkTheme] = useState(false)
 
   useEffect(() => {
@@ -79,6 +80,7 @@ function App() {
             data = {data}
             displayType = {displayType}
             searchResult = {searchResult}
+            searchQuery = {searchQuery}
             region = {region}
             serverUrl = {serverUrl}
             setBorderCountryDetails = {setBorderCountryDetails}
@@ -88,6 +90,7 @@ function App() {
             setDisplayType = {setDisplayType}
             setRegion = {setRegion}
             setSearchResult = {setSearchResult}
+            setSearchQuery = {setSearchQuery}
             setShowDetails = {setShowDetails}
             />
         }

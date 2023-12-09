@@ -6,7 +6,9 @@ export const FilterByRegion = (
     serverUrl,
     setRegion,
     setDisplayType,
-    setCountriesByRegion
+    setCountriesByRegion,
+    setSearchResult,
+    setSearchQuery
   }
 ) => {
 
@@ -43,6 +45,8 @@ export const FilterByRegion = (
                   key={region}
                   id={region} 
                   onClick={()=>{
+                    setSearchQuery('')
+                    setSearchResult(null)
                     let requestUrl = serverUrl + '/region/' + region
                     getCountriesData(requestUrl, setCountriesByRegion)
                     setRegion(region)
