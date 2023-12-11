@@ -14,7 +14,7 @@
   font-style: italic;
 }
 
-[data-bs-theme="light"] {
+html[data-bs-theme="light"] {
   --bs-body-bg: hsl(0, 0%, 98%);
 }
 

@@ -153,77 +153,72 @@ select:focus-visible{
 }
 
 /* Bootstrap Dark Theme customizations */
-[data-bs-theme="dark"] {
-
+html[data-bs-theme="dark"] {
   --bs-body-bg: hsl(207, 26%, 17%);
+}
 
-  .app{
-    background-color: hsl(207, 26%, 17%);
-  }
 
-  .btn {
-    background-color: hsl(209, 23%, 22%);
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  }
+html[data-bs-theme="dark"]  .btn {
+  background-color: hsl(209, 23%, 22%);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-  .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
-    border-color: transparent;
-  }
+html[data-bs-theme="dark"] .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+  border-color: transparent;
+}
 
-  .btn:hover {
-    background-color: hsl(207, 26%, 14%);
-  }
+html[data-bs-theme="dark"]  .btn:hover {
+  background-color: hsl(207, 26%, 14%);
+}
 
-  .card {
-    background-color: hsl(209, 23%, 22%);
-  }
+html[data-bs-theme="dark"]  .card {
+  background-color: hsl(209, 23%, 22%);
+}
 
-  .card:hover{
-    background-color: hsl(207, 26%, 14%);
-  }
+html[data-bs-theme="dark"]  .card:hover{
+  background-color: hsl(207, 26%, 14%);
+}
 
-  .dropdown-menu {
-    background-color: hsl(209, 23%, 22%);
-  }
+html[data-bs-theme="dark"]  .dropdown-menu {
+  background-color: hsl(209, 23%, 22%);
+}
 
-  .dropdown-item:hover{
-    background-color: hsl(207, 26%, 14%);
-  }
+html[data-bs-theme="dark"] .dropdown-item:hover{
+  background-color: hsl(207, 26%, 14%);
+}
 
-  .dropdown-toggle::after {
-    border: solid hsl(0, 0%, 100%);
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    margin-left:0.5rem;
-    vertical-align:0.15rem;
-  }
+html[data-bs-theme="dark"]  .dropdown-toggle::after {
+  border: solid hsl(0, 0%, 100%);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-left:0.5rem;
+  vertical-align:0.15rem;
+}
 
-  .footer {
-    background-color: hsl(209, 23%, 22%);
-  }
+html[data-bs-theme="dark"] .footer {
+  background-color: hsl(209, 23%, 22%);
+}
 
-  .form-control {
-    background-color: hsl(209, 23%, 22%);
-  }
+html[data-bs-theme="dark"]  .form-control {
+  background-color: hsl(209, 23%, 22%);
+}
 
-  .header {
-    background-color: hsl(209, 23%, 22%);
-  }
+html[data-bs-theme="dark"] .header {
+  background-color: hsl(209, 23%, 22%);
+}
   
-  .search-input-group {
-    background-color: hsl(209, 23%, 22%);
-  }
+html[data-bs-theme="dark"] .search-input-group {
+  background-color: hsl(209, 23%, 22%);
+}
 
-  .search-input:focus{
-    background-color: hsl(209, 23%, 22%);
-  }
+html[data-bs-theme="dark"]  .search-input:focus{
+  background-color: hsl(209, 23%, 22%);
+}
 
-  .search-input:focus-visible:focus:active{
-    background-color: hsl(209, 23%, 22%);
-  }
-
+html[data-bs-theme="dark"] .search-input:focus-visible:focus:active{
+  background-color: hsl(209, 23%, 22%);
 }

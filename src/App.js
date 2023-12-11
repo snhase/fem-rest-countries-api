@@ -38,27 +38,27 @@ function App() {
   return (
     <div className="app">
       <header className="header shadow-sm py-3">
-        <div className="container d-flex justify-content-between mx-auto">
-        <div className="h3 align-content-center align-items-center"><span> Where in the world?</span></div>
+        <div className="container d-flex justify-content-between align-items-center mx-auto">
+          <div className="h3 m-0">Where in the world?</div>
+          <div 
+            className="col d-flex align-content-center align-items-center justify-content-end"
+            >
+              {
+                darkTheme ?
+                <BsFillMoonFill
+                  size="1.25rem"
+                  style={{cursor:"pointer"}}
+                  onClick={toggleTheme}/>
+                :
+                <BsMoon
+                  size="1.25rem"
+                  style={{cursor:"pointer"}}
+                  onClick={toggleTheme}/>
+              }
             <div 
-              className="col d-flex align-content-center align-items-center justify-content-end"
-              >
-                {
-                  darkTheme ?
-                  <BsFillMoonFill
-                    size="1.25rem"
-                    style={{cursor:"pointer"}}
-                    onClick={toggleTheme}/>
-                  :
-                  <BsMoon
-                    size="1.25rem"
-                    style={{cursor:"pointer"}}
-                    onClick={toggleTheme}/>
-                }
-              <div 
-                className="mx-2 fw-bold"
-                >Dark Mode</div>
-            </div>
+              className="mx-2 fw-bold"
+              >Dark Mode</div>
+          </div>
         </div>
       </header>
       <main className="content container mx-auto px-0">
