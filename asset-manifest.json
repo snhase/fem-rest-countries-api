@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/fem-rest-countries-api/static/css/main.1791a0b7.css",
+    "main.js": "/fem-rest-countries-api/static/js/main.6efb53f2.js",
+    "static/js/787.8006b152.chunk.js": "/fem-rest-countries-api/static/js/787.8006b152.chunk.js",
+    "static/media/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf": "/fem-rest-countries-api/static/media/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.61b71ee93d55d9bddead.ttf",
+    "static/media/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf": "/fem-rest-countries-api/static/media/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.7f24c0208b4b0e7af738.ttf",
+    "index.html": "/fem-rest-countries-api/index.html",
+    "main.1791a0b7.css.map": "/fem-rest-countries-api/static/css/main.1791a0b7.css.map",
+    "main.6efb53f2.js.map": "/fem-rest-countries-api/static/js/main.6efb53f2.js.map",
+    "787.8006b152.chunk.js.map": "/fem-rest-countries-api/static/js/787.8006b152.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1791a0b7.css",
+    "static/js/main.6efb53f2.js"
+  ]
+}
